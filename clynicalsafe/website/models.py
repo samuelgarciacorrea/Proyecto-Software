@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
     
 
-class Usuario(User):
+class Usuario(models.Model):
 
     cedula = models.CharField(max_length=40, null=True)
     celular = models.CharField(max_length=40, null=True)
@@ -23,8 +23,8 @@ class Usuario(User):
     alergias = models.CharField(max_length=1000 , null=True)
 
     @property
-    def name(self):
-        return self.first_name
+    def nombre(self):
+        return self.nombre
 
     @property
     def apellido(self):
@@ -49,6 +49,7 @@ Departamentos = [
 class Doctores(User):
     cedula = models.CharField(max_length=40, null=True)
     Departamento =  models.IntegerField(choices=Departamentos)
+    foto = models.ImageField(upload_to="doctores", null=False)
     
     @property
     def name(self):

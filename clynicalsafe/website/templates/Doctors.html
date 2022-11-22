@@ -127,6 +127,24 @@
     </div>
     <!-- bradcam_area_end  -->
 
+
+    <div class="col-md-6 col-lg-3">
+    <div class="single_expert mb-40">
+        <div class="expert_thumb">
+            
+            {% for p in lista_doctores%}
+                  <p class="name">{{p.name}}</p>
+                  <p class="precio">{{p.Departamento}}</p>
+                </div>
+              </div>
+            </a>
+          {% endfor%}
+        </div>
+        <div class="experts_name text-center">
+        </div>
+    </div>
+
+{% comment %} 
     <!-- expert_doctors_area_start -->
     <div class="expert_doctors_area doctor_page">
         <div class="container">
@@ -218,7 +236,7 @@
                             <span>Oftalmologo</span>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </div>

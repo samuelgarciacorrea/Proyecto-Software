@@ -1,14 +1,14 @@
 from pyexpat.errors import messages
 import re
 from django.shortcuts import render, redirect
-from .models import  Usuario
+from .models import  Usuario, Doctores
 from django.contrib.auth import authenticate, login as userlogin, logout as userlogout, get_user_model
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'index.html', {})
+    return render(request, 'index.html')
 
 
 def about(request):
@@ -20,22 +20,28 @@ def about(request):
 
 
 def blog(request):
-    return render(request, 'blog.html', {})
+    return render(request, 'blog.html', )
 
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    return render(request, 'contact.html', )
 
 
 def Department(request):
-    return render(request, 'Department.html', {})
+    return render(request, 'Department.html', )
 
 def historias(request):
-    return render(request, 'history.html', {})
+    return render(request, 'history.html', )
 
 
 def Doctors(request):
-    return render(request, 'Doctors.html', {})
+    doctores = Doctores.objects.all()
+    cant_doctores = len(doctores)
+    data = {
+        'lista_doctores': doctores,
+        'items': cant_doctores
+    }
+    return render(request, 'Doctors.html',data, )
 
 
 def elements(request):
