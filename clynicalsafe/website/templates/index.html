@@ -502,45 +502,46 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 <!-- link that opens popup -->
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
+    <form id="test-form" class="white-popup-block mfp-hide" action="{% url 'index'%}">
+        
         <div class="popup_box ">
             <div class="popup_inner">
-                <h3>Make an Appointment</h3>
-                <form action="#">
+                <h3>Agendar una Cita</h3>
+                <form action="{% url 'index'%}">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-xl-6">
-                            <input id="datepicker" placeholder="Pick date">
+                            <input id="fecha1" name="fecha1" type="date" placeholder="Escoger Fecha">
                         </div>
                         <div class="col-xl-6">
-                            <input id="datepicker2" placeholder="Suitable time">
+                            <input id="fecha2" name="fecha2" type="date" placeholder="Segunda Opcion">
                         </div>
                         <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Select Department">Department</option>
-                                <option value="1">Eye Care</option>
-                                <option value="2">Physical Therapy</option>
-                                <option value="3">Dental Care</option>
+                            <select class="form-select wide" id="Departamento" name="Departamento" class="">
+                                <option data-display="Escoger Departmento">Departmentos</option>
+                                <option value="0">oftalmologia</option>
+                                <option value="1">Dermatologia </option>
+                                <option value="2">Patologia </option>
+                                <option value="3">Consulta </option>
+                                <option value="4">Operaciones </option>
+                                <option value="5">Odontologia </option>
+
                             </select>
                         </div>
                         <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Doctors">Doctors</option>
-                                <option value="1">Mirazul Alom</option>
-                                <option value="2">Monzul Alom</option>
-                                <option value="3">Azizul Isalm</option>
-                            </select>
+                            <input id="Doctor" name="Doctor" placeholder="Escoger Doctor">
                         </div>
                         <div class="col-xl-6">
-                            <input type="text"  placeholder="Name">
+                            <input type="text" id="nombre" name="nombre" placeholder="nombre">
                         </div>
                         <div class="col-xl-6">
-                            <input type="text"  placeholder="Phone no.">
+                            <input type="text" id="celular" name="celular"  placeholder="Numero de celular">
                         </div>
                         <div class="col-xl-12">
-                            <input type="email"  placeholder="Email">
+                            <input type="email" id="correo" name="correo" placeholder="Correo">
                         </div>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed-btn3">Confirm</button>
+                            <button type="submit" class="boxed-btn3">Enviar</button>
                         </div>
                     </div>
                 </form>

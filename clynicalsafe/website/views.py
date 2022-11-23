@@ -1,5 +1,6 @@
 from pyexpat.errors import messages
 import re
+from .forms import formularioContacto, AgendarCita
 from django.shortcuts import render, redirect
 from .models import  Usuario, Doctores
 from django.contrib.auth import authenticate, login as userlogin, logout as userlogout, get_user_model
@@ -8,7 +9,17 @@ from django.contrib.auth import authenticate, login as userlogin, logout as user
 
 
 def index(request):
-    return render(request, 'index.html')
+    data = {
+        'form': AgendarCita()
+    }
+    if request.method == 'POST':
+        formulario = AgendarCita(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Reseña enviada"
+        else:
+            data["form"] = formulario
+    return render(request, 'index.html',data)
 
 
 def about(request):
@@ -22,9 +33,22 @@ def about(request):
 def blog(request):
     return render(request, 'blog.html', )
 
+def denegado(request):
+    return render(request, 'denegado.html', )
+
 
 def contact(request):
-    return render(request, 'contact.html', )
+    data = {
+        'form': formularioContacto()
+    }
+    if request.method == 'POST':
+        formulario = formularioContacto(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Reseña enviada"
+        else:
+            data["form"] = formulario
+    return render(request, 'contact.html',data )
 
 
 def Department(request):
@@ -41,7 +65,14 @@ def Doctors(request):
         'lista_doctores': doctores,
         'items': cant_doctores
     }
-    return render(request, 'Doctors.html',data, )
+    return render(request, 'Doctors.html',data )
+
+def Doctor(request, name_p):
+    doctor = Doctores.objects.get(name=name_p)
+    data = {
+        'doctor': doctor,
+    }
+    return render(request, "Doctores.html", data)
 
 
 def elements(request):

@@ -3,14 +3,40 @@ from email.policy import default
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 # Create your models here.
 
-
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    tema = models.CharField(max_length=50)
+    mensaje = models.TextField()
+    def _str_(self):
+        return self.nombre
     
+Departamentos1 = [
+    [0, "oftalmologia"],
+    [1, "Dermatologia"],
+    [2, "Patologia"],
+    [3, "Consulta"],
+    [4, "Operaciones"],
+    [5, "Odontologia"],
+]
+class Cita(models.Model):
+    fecha1 = models.DateField()
+    fecha2 = models.DateField()
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    Departamento =  models.IntegerField(choices=Departamentos1)
+    celular = models.CharField(max_length=40, null=True)
+    Doctor = models.CharField(max_length=50)
+    def _str_(self):
+        return self.nombre
 
-class Usuario(models.Model):
 
+class Usuario(User):
+    
     cedula = models.CharField(max_length=40, null=True)
     celular = models.CharField(max_length=40, null=True)
     direccion = models.CharField(max_length=128)
@@ -49,11 +75,9 @@ Departamentos = [
 class Doctores(User):
     cedula = models.CharField(max_length=40, null=True)
     Departamento =  models.IntegerField(choices=Departamentos)
-    foto = models.ImageField(upload_to="doctores", null=False)
-    
-    @property
-    def name(self):
-        return self.first_name
+    """ foto = models.ImageField(upload_to="doctores", null=True)
+     """
+    name = models.CharField(max_length=40, null=True)
 
     @property
     def apellido(self):

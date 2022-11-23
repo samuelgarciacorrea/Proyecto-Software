@@ -113,169 +113,24 @@
         </div>
     </header>
     <!-- header-end -->
-
-    <!-- bradcam_area_start  -->
-    <div class="bradcam_area breadcam_bg_2 bradcam_overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text">
-                        <h3>Doctores</h3>
-                        <p>Nuestros Doctores</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- bradcam_area_end  -->
-
-
     <div class="container">
         <div class="clothescontainer">
-            {% for p in lista_doctores%}
-            <a href="/Doctor/{{p.name}}">
-        <div class="card">
-            <img src="{% static 'website/img/experts/.png' %}" alt=""> 
+           
+          <div class="card">
+            <img src="{% static 'website/img/experts/1.png' %}" alt=""> 
 
-        <div class="info"> 
-            <p class="name">{{p.name}}  {{p.apellido}}</p>
-            <p >Departamento </p>
-            {%  if p.Departamento == 0 %}
-                          <p class="precio">{{p.Departamento}}. oftalmologia </p>
-                          {%endif%}
-            
-                          {%  if p.Departamento == 1 %}
-                          <p class="precio">{{p.Departamento}}. Dermatologia  </p>
-                          {%endif%}
-            
-                          {%  if p.Departamento == 2 %}
-                          <p class="precio">{{p.Departamento}}. Patologia  </p>
-                          {%endif%}
-            
-                          {%  if p.Departamento == 3 %}
-                          <p class="precio">{{p.Departamento}}. Atencion General  </p>
-                          {%endif%}
-            
-                          {%  if p.Departamento == 4 %}
-                          <p class="precio">{{p.Departamento}}. Operaciones  </p>
-                          {%endif%}
-            
-                          {%  if p.Departamento == 5 %}
-                          <p class="precio">{{p.Departamento}}. Odontologia  </p>
-                          {%endif%}
-                        </div>            
-        </div>
-    
-
-            {% endfor%}
-    </div>
-
-    </div>
-       
-    
-
-
-    <!-- expert_doctors_area_start -->
-
-    <!-- <div class="expert_doctors_area doctor_page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/1.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Sebastian Giraldo</h3>
-                            <span>Medico general</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/2.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Andres Escobar</h3>
-                            <span>Dermatologo</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/3.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Samuel Lopez</h3>
-                            <span>Odontologo</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/4.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Mirazul Alom</h3>
-                            <span>Medico General</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/6.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Lucas Ochoa</h3>
-                            <span>Medico General</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/7.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Ana Rios</h3>
-                            <span>Cirujana</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/8.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Simon Restrepo </h3>
-                            <span>Dermatologo</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="single_expert mb-40">
-                        <div class="expert_thumb">
-                            <img src="{% static 'website/img/experts/9.png' %}" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Kevin Gallego</h3>
-                            <span>Oftalmologo</span>
-                        </div>
-                    </div>
-                </div> 
-            </div>
+            <div class="info"><br>
+              <span class="nombre">Departamento: oftalmologia</span><br>
+              <span class="precio">Doctor: John Alvarez</span><br>
+              
+            </div><br>
+            <a  class="boxed-btn3" id="btn" href="denegado.html" >Citas</a>
         </div>
     </div>
- -->    <!-- expert_doctors_area_end -->
-
-    <!-- testmonial_area_end -->
-
-    
+        <div class="recomendaciones">
+          
+        </div>
+      </div>
        
 
      <!-- Emergency_contact start -->
