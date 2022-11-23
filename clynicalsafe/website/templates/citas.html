@@ -91,10 +91,9 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a class="active" href="index.html">Inicio</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="elements.html">elementos</a></li>
-                                                    <li><a href="about.html">about</a></li>
+                                                    <li><a href="historias.html">Crear Historia Clinica</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="Doctors.html">Doctores</a></li>
@@ -123,6 +122,20 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_docmed_info">
                         <h2>Citas</h2>
+                        {% for p in lista_citas%}
+                        <div  class="card">
+                            <div class="info">
+                                <p class="name">Paciente: {{p.nombre}}</p>
+                                <p class="precio">Doctor: {{p.Doctor}}</p>
+                                <p class="precio">Fecha de la cita: {{p.fecha1}}</p>
+                                <p class="precio">Segunda opcion fecha: {{p.fecha2}}</p>
+                                <p class="precio">Celular paciente: {{p.celular}}</p>
+
+                            </div>
+                        </div>
+      
+    {% endfor%}
+
                        </div>
                 </div>
                     </div>

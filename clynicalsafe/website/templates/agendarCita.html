@@ -67,8 +67,7 @@
                                         {% endif %}
                                       </span>
                                     {% if request.user.is_authenticated %}
-                                <a href="{%url "logout"%}" class=""><li class="material-symbols-outlined icons">Salir</li></a>
-                                <br><a href="historias.html" class="fa fa-envelope">Ver Historia Clinica</a>
+                                <a href="{%url "logout"%}"><li class="material-symbols-outlined icons">Salir</li></a>
                                 {%else%}
                                 <a href="{%url "login"%}"><span class="material-symbols-outlined icons"></span></a>
                                 {% endif %}
@@ -95,27 +94,19 @@
                                     <li><a class="active" href="index.html">Inicio</a></li>
                                     <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
-                                            <li><a href="history.html">Crear Historia Clinica</a></li>
-
+                                            <li><a href="history.html">Historias</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="Doctors.html">Doctores</a></li>
                                     <li><a href="contact.html">Contactanos</a></li>
-                                    
 
-                                
+                                 
 
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                        <div class="Appointment">
-                            <div class="book_btn d-none d-lg-block">
-                                <a  href="agendarCita.html">Agendar una Cita</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
@@ -124,196 +115,6 @@
         </div>
     </div>
 </header>
-<!-- header-end -->
-
-
-    <!-- slider_area_start -->
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3> <span>Cuidado de la Salud</span> <br>
-                                    Para todos </h3>
-                                <p>Cuidamos la salud de toda tu familia desde los mas pequeños  <br> hasta los mas grandes en los diferentes campos de la medicina</p>
-                                <a href="#" class="boxed-btn3">Revisa nuestros servicios</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3> <span>Tu salud es lo</span> <br>
-                                    que mas importa </h3>
-                                <p>Somos las personas mas capacitadas para ayudar a mejorar tu salud,  <br> Nuestros servicios
-                                    son los mas reconocido en latino america 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- slider_area_end -->
-
-    <!-- service_area_start -->
-    <div class="service_area">
-        <div class="container p-0">
-            <div class="row no-gutters">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_service">
-                        <div class="icon">
-                            <i class="flaticon-electrocardiogram"></i>
-                        </div>
-                        <h3>Hospitalidad</h3>
-                        <p> La excelencia clinica debe ser la prioridad de cualquier centro de salud.</p>
-                        
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_service">
-                        <div class="icon">
-                            <i class="flaticon-emergency-call"></i>
-                        </div>
-                        <h3>Llamadas de emergencia</h3>
-                        <p>Contamos con atencion via telefonica </p>
-                        <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_service">
-                        <div class="icon">
-                            <i class="flaticon-first-aid-kit"></i>
-                        </div>
-                        <h3>Servicio de Primera</h3>
-                        <p>La excelencia clinica debe ser la prioridad de cualquier centro de salud..</p>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- service_area_end -->
-
-
-    <!-- offers_area_start -->
-    <div class="our_department_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-55">
-                        <h3>Nuestros departamentos</h3>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/1.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Oftalmologia</a></h3>
-                            <p>Nos encargamos del cuidado de tus ojos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/2.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Dermatologia</a></h3>
-                            <p>Nos encargamos del cuidado de tu piel.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/3.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Odontologia </a></h3>
-                            <p>Nos encargamos del cuidado de tus dientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/4.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Servicio Diagnostico</a></h3>
-                            <p>Nos encargamos de tu salud</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/5.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Dermatologia</a></h3>
-                            <p>Nos encargamos del cuidado de tu piel.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="{% static 'website/img/department/6.png'%}" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Servicio de Operaciones</a></h3>
-                            <p>Nos encargamos de que tus operaciones sean de primera calidad</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- offers_area_end -->
-
-    
-    <!-- business_expert_area_start  -->
-    <div class="business_expert_area">
-        <div class="business_tabs_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <ul class="nav" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                            aria-selected="true">Excelente Servicio</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                            aria-selected="false"> Doctores Calificados</a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                            aria-selected="false">Departamento de Emergencias</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
       
     <!-- expert_doctors_area_start -->
     <div class="expert_doctors_area">
@@ -377,11 +178,59 @@
                             </div>
                         </div>
                     </div>
+                    <div class="popup_box ">
+                        <div class="popup_inner">
+                            <h3>Agendar una Cita</h3>
+                            <form action="{% url 'cita'%}" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <input id="fecha1" name="fecha1" type="date" placeholder="Escoger Fecha">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input id="fecha2" name="fecha2" type="date" placeholder="Segunda Opcion">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <select class="form-select wide" id="Departamento" name="Departamento" class="">
+                                            <option data-display="Escoger Departmento">Departmentos</option>
+                                            <option value="0">oftalmologia</option>
+                                            <option value="1">Dermatologia </option>
+                                            <option value="2">Patologia </option>
+                                            <option value="3">Consulta </option>
+                                            <option value="4">Operaciones </option>
+                                            <option value="5">Odontologia </option>
+                
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input id="Doctor" name="Doctor" placeholder="Escoger Doctor">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="text" id="nombre" name="nombre" placeholder="nombre">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="text" id="celular" name="celular"  placeholder="Numero de celular">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <input type="email" id="correo" name="correo" placeholder="Correo">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <button type="submit" class="boxed-btn3">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
     <!-- expert_doctors_area_end -->
+    
+        
+   
+<!-- form itself end --
 
     <!-- Emergency_contact start -->
     <div class="Emergency_contact">
@@ -498,6 +347,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
         </div>
     </div>
 </footer>
+<!-- footer end  -->
+<!-- link that opens popup -->
+
+    <!-- form itself end-->>
+
     <!-- JS here -->
     <script src="{% static 'website/js/vendor/modernizr-3.5.0.min.js' %}"></script>
     <script src="{% static 'website/js/vendor/jquery-1.12.4.min.js' %}"></script>

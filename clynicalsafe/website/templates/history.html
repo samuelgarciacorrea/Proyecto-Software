@@ -97,13 +97,6 @@
 							</nav>
 						</div>
 					</div>
-					<div class="col-xl-3 col-lg-3 d-none d-lg-block">
-						<div class="Appointment">
-							<div class="book_btn d-none d-lg-block">
-								<a class="popup-with-form" href="#test-form">Make an Appointment</a>
-							</div>
-						</div>
-					</div>
 					<div class="col-12">
 						<div class="mobile_menu d-block d-lg-none"></div>
 					</div>
@@ -123,128 +116,153 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<h3 class="mb-30">Historia Clínica</h3>
-					<h4 class="mb-20">Datos Personales</h4>
-					<form action="#">
+
+					<form  action="{% url 'historias'%}" method="POST">
+						{% csrf_token %}
+						
+						<div class="col-lg-3 col-md-4 mt-sm-30">
+							<div class="single-element-widget">
+								<h4 class="mb-30">Fecha en que se elaboró la historia</h4>
+								<div class="mt-10">
+									<input type="date" name="fecha" id="fecha"  placeholder="DD/MM/AA"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fecha'" required
+									class="single-input">
+								</div>
+								<h3 class="mb-40"></h3>
+								<div class="mt-20">
+									<h4 class="mb-30">Datos de quien(es) elabora(n) la historia</h4>
+									<div class="mt-20">
+										<input type="text" name="Doctor" placeholder="Nombre doctor"
+											onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre doctor'" required
+											class="single-input">
+									</div>
+								</div>
+							</div>
+						</div>
+<br><br><br>						<h4 class="mb-20">Datos Personales</h4>
 						<div class="mt-10">
-							<input type="text" name="first_name" placeholder="First Name"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
+							<input type="text" id="nombre" name="nombre" placeholder="Nombre"
+								onfocus="this.placeholder = ''" onblur="this.placeholder ='nombre'" required
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<input type="text" name="last_name" placeholder="Last Name"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
+							<input type="text" id="apellido1"name="apellido1" placeholder="Primer Apellido"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primer Apellido'" required
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<input type="text" name="last_name" placeholder="Last Name"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
+							<input type="text" name="apellido2" id="apellido2" placeholder="Segundo Apellido"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Segundo Apellido'" required
 								class="single-input">
 						</div>
 						<div class="mt-10" >
 							<div class="col-lg-3 col-lg-3">
 								<div class="default-select" id="default-select">
-											<select>
-												<option value=" 1">sex</option>
-									<option value="1">Female</option>
-									<option value="1">Male</option>
-									<option value="1">Other</option>
+									<label >Genero</label>
+									<select name="sexo" id="sexo">
+									<option >Femenino</option>
+									<option >Masculino</option>
+									<option >Otro</option>
 									</select>
 								</div>
 								<div class="mt-10">
-									<input type="text" name="Ocupación" placeholder="Ocupación"
+									<input type="text" name="Ocupacion" id="Ocupacion" placeholder="Ocupación"
 										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ocupación'" required
 										class="single-input">
 								</div>
 								<div class="mt-10">
-									<input type="text" name="Age" placeholder="Age"
-										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Age'" required
+									<input type="text" name="edad" id="edad" placeholder="Edad"
+										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Edad'" required
 										class="single-input">
 								</div>
 							</div>	
 						</div>
 						<div class="mt-10" >
 							<div class="default-select" id="default-select">
-										<select>
-											<option value=" 1">Estado civil</option>
-								<option value="1">Soltero(a)</option>
-								<option value="1">Casado(a)</option>
-								<option value="1">Unión Libre</option>
-								<option value="1">Divorciado(a)</option>
-								<option value="1">Viudo(a)</option>
-								</select>
+								<label >Estado civil</label><br>
+								<select name="estadoCivil" id="estadoCivil">
+								<option >Soltero(a)</option>
+								<option >Casado(a)</option>
+								<option >Unión Libre</option>
+								<option>Divorciado(a)</option>
+								<option >Viudo(a)</option>
+								</select><br>
 							</div>
 						</div>		
-						<div class="mt-10">
-							<input type="email" name="EMAIL" placeholder="Email address"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+						<div class="mt-10"><br>
+							<input type="email" name="correo" id="correo" placeholder="Correo Electronico*"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo Electronico*'" required
 								class="single-input">
 						</div>
 						<div class="input-group-icon mt-10">
 							<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-							<input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Address'" required class="single-input">
+							<input type="text" name="direccion" id="direccion" placeholder="Dirección" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Dirección'" required class="single-input">
 						</div>
 						<div class="input-group-icon mt-10">
 							<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
 							<div class="form-select" id="default-select"">
-										<select>
-											<option value=" 1">City</option>
-								<option value="1">Medellín</option>
-								<option value="1">Envigado</option>
-								<option value="1">Itagui</option>
-								<option value="1">Sabaneta</option>
-								<option value="1">Otro</option>
+								<label >Ciudad</label>
+										<select id="ciudad" name="ciudad">
+								<option >Medellín</option>
+								<option>Envigado</option>
+								<option >Itagui</option>
+								<option >Sabaneta</option>
+								<option >Otro</option>
 								</select>
 							</div>
 						</div>
 						<div class="input-group-icon mt-10">
 							<div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
 							<div class="form-select" id="default-select"">
-										<select>
-											<option value=" 1">Country</option>
-								<option value="1">Colombia</option>
-								<option value="1">Venezuela</option>
-								<option value="1">Panama</option>
-								<option value="1">Otro</option>
+								<label >País</label>		
+								<select id="pais" name="pais">	
+								<option >Colombia</option>
+								<option >Venezuela</option>
+								<option>Panama</option>
+								<option >Otro</option>
 								</select>
 							</div>
 						</div>
 						<div class="mt-10">
-							<input type="text" name="Telefono" placeholder="Telefono"
+							<input type="text" name="celular" id="celular" placeholder="Telefono"
 								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefono'" required
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<textarea class="single-textarea" placeholder="Observaciones" onfocus="this.placeholder = ''"
+							<textarea class="single-textarea" name="Observaciones" id="Observaciones" placeholder="Observaciones" onfocus="this.placeholder = ''"
 								onblur="this.placeholder = 'Observaciones'" required></textarea>
 						</div>
+
+
 						<h3 class="mb-40"></h3>
 						<h3 class="mb-20">Información Médica</h3>
 						<div class="mt-10">
-							<input type="text" name="RH" placeholder="RH"
+
+							<input type="text" name="rh" id="rh" placeholder="RH"
 								onfocus="this.placeholder = ''" onblur="this.placeholder = 'RH'" required
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<input type="text" name="Sistema de salud" placeholder="Sistema de salud"
+							<input type="text" name="eps" placeholder="Sistema de salud"
 								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sistema de salud'" required
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<textarea class="single-textarea" placeholder="Enfermedades importantes" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Enfermedades importantes'" required></textarea>
+							<textarea class="single-textarea" name="enfermedades" placeholder="Enfermedades importantes" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Enfermedades importantes'" ></textarea>
 						</div>
 						<div class="mt-10">
-							<textarea class="single-textarea" placeholder="Medicamentos permanentes" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Medicamentos permanentes'" required></textarea>
+							<textarea class="single-textarea" name="medicamentos" placeholder="Medicamentos permanentes" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Medicamentos permanentes'" ></textarea>
 						</div>
 						<div class="mt-10">
-							<textarea class="single-textarea" placeholder="Alergías" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Alergías'" required></textarea>
+							<textarea class="single-textarea" name="alergias" placeholder="Alergías" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Alergías'" ></textarea>
 						</div>
 						<div class="mt-10">
-							<textarea class="single-textarea" placeholder="Alergías a medicamentos" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = 'Alergías a medicamentos'" required></textarea>
+							<textarea class="single-textarea" name="alergiasMedicamentos" placeholder="Alergías a medicamentos" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Alergías a medicamentos'" ></textarea>
 						</div>
 						<div class="">
 							<input type="submit" class="button " value="Enviar">
@@ -260,25 +278,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="col-lg-3 col-md-4 mt-sm-30">
-					<div class="single-element-widget">
-						<h4 class="mb-30">Fecha en que se elaboró la historia</h4>
-						<div class="mt-10">
-							<input type="text" name="Fecha" placeholder="DD/MM/AA"
-								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fecha'" required
-								class="single-input">
-						</div>
-						<h3 class="mb-40"></h3>
-						<div class="mt-20">
-							<h4 class="mb-30">Datos de quien(es) elabora(n) la historia</h4>
-							<div class="mt-20">
-								<input type="text" name="Nombre doctor" placeholder="Nombre doctor"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre doctor'" required
-									class="single-input">
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

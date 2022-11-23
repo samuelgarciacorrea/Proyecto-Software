@@ -33,7 +33,32 @@ class Cita(models.Model):
     Doctor = models.CharField(max_length=50)
     def _str_(self):
         return self.nombre
+    
+class Historia(models.Model):
+    fecha = models.DateField()
+    Doctor = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50)
+    apellido1 = models.CharField(max_length=50)
+    apellido2 = models.CharField(max_length=50)
+    sexo = models.CharField(max_length=50)
+    Ocupacion = models.CharField(max_length=50)
+    edad = models.CharField(max_length=50)
+    estadoCivil = models.CharField(max_length=50)
+    correo = models.EmailField(max_length=50)
+    direccion = models.CharField(max_length=128)
+    ciudad = models.CharField(max_length=128)
+    pais = models.CharField(max_length=128)
+    celular = models.CharField(max_length=40, null=True)
+    Observaciones = models.CharField(max_length=200, null=True)
+    rh = models.CharField(max_length=16,null=True)
+    eps = models.CharField(max_length=16,null=True)
+    enfermedades = models.CharField(max_length=1000, null=True)
+    medicamentos = models.CharField(max_length=1000 , null=True)
+    alergias = models.CharField(max_length=1000 , null=True)
+    alergiasMedicamentos = models.CharField(max_length=1000 , null=True)
 
+    
+    
 
 class Usuario(User):
     

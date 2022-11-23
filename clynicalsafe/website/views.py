@@ -1,25 +1,29 @@
 from pyexpat.errors import messages
 import re
-from .forms import formularioContacto, AgendarCita
+from .forms import formularioContacto, AgendarCita, Historia
 from django.shortcuts import render, redirect
-from .models import  Usuario, Doctores
+from .models import  Usuario, Doctores,Historia,Cita
 from django.contrib.auth import authenticate, login as userlogin, logout as userlogout, get_user_model
 
 # Create your views here.
 
 
 def index(request):
+    return render(request, 'index.html')
+
+def citas(request):
+    citas = Cita.objects.all()
     data = {
-        'form': AgendarCita()
-    }
-    if request.method == 'POST':
-        formulario = AgendarCita(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            data["mensaje"] = "Reseña enviada"
-        else:
-            data["form"] = formulario
-    return render(request, 'index.html',data)
+        'lista_citas': citas,
+    } 
+    return render(request, 'citas.html',data)
+
+def historiaClinica(request):
+    historias = Historia.objects.all()
+    data = {
+        'lista_historias': historias,
+    } 
+    return render(request, 'historias.html',data)
 
 
 def about(request):
@@ -35,6 +39,19 @@ def blog(request):
 
 def denegado(request):
     return render(request, 'denegado.html', )
+
+def agendarCita(request):
+    data = {
+        'form': AgendarCita()
+    }
+    if request.method == 'POST':
+        formulario = AgendarCita(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Reseña enviada"
+        else:
+            data["form"] = formulario
+    return render(request, 'agendarCita.html',data )
 
 
 def contact(request):
@@ -55,7 +72,18 @@ def Department(request):
     return render(request, 'Department.html', )
 
 def historias(request):
-    return render(request, 'history.html', )
+    data = {
+        'form': Historia()
+    }
+    if request.method == 'POST':
+        formulario = Historia(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Reseña enviada"
+        else:
+            data["form"] = formulario
+    
+    return render(request, 'history.html',data)
 
 
 def Doctors(request):
@@ -82,8 +110,6 @@ def elements(request):
 def main(request):
     return render(request, 'main.html', {})
 
-def citas(request):
-    return render(request, 'citas.html', {})
 
 def login(request):
 
