@@ -31,7 +31,8 @@
 
 </head>
 
-<body> <!-- header-start -->
+<body>
+    <!-- header-start -->
     <header>
         <div class="header-area ">
             <div class="header-top_area">
@@ -55,17 +56,20 @@
                                 <ul>
                                     <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
                                     <li><a href="#"> <i class="fa fa-phone"></i> 160160</a></li>
-                                    
+
                                     <li><a href="login.html">Login </a></li>
-                                        <li><a href="register.html">Registro</a></li>
-                                        <span style="font-size: 15px"> Welcome {% if request.user.is_authenticated %}
-                                            {{request.user.username}}
-                                            {% endif %}
-                                          </span>
-                                        {% if request.user.is_authenticated %}
-                                    <a href="{%url "logout"%}"><li class="material-symbols-outlined icons">Salir</li></a>
+                                    <li><a href="register.html">Registro</a></li>
+                                    <span style="font-size: 15px"> Welcome {% if request.user.is_authenticated %}
+                                        {{request.user.username}}
+                                        {% endif %}
+                                    </span>
+                                    {% if request.user.is_authenticated %}
+                                    <a href="{% url 'website:logout' %}">
+                                        <li class="material-symbols-outlined icons">Salir</li>
+                                    </a>
                                     {%else%}
-                                    <a href="{%url "login"%}"><span class="material-symbols-outlined icons"></span></a>
+                                    <a href="{% url 'website:login' %}"><span
+                                            class="material-symbols-outlined icons"></span></a>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -99,7 +103,7 @@
                                 </nav>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -108,160 +112,164 @@
     <!-- header-end -->
 
 
-          
+
     <!-- slider_area_end -->
 
     <!-- service_area_start -->
-    
 
 
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="welcome_docmed_info">
-                        <h2>Bienvenido a clynical Safe</h2>
-                        <div class="content-middle">
-                            <div class="container">
-                                <div class="contenido">
-                                    <div class="contenido-middle">
-                                        <h1>
-                                            Registrarse
-                                        </h1>
-                                        {% if error %}
-                                        <p>
-                                            El nombre de usuario o correo electr&oacute;nico ya existen, pruebe con otro
-                                        </p>
-                                        {% endif %}
-                                        <form id="formulario" action="" method="POST">
-                                            {% csrf_token %}
-                                            <div class="form-contenido">
-                                                <div class="contenedor-input">
-                                                    <label>Nombre * </label>
-                                                    <input type="text" name="nombre" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Apellidos * </label>
-                                                    <input type="text" name="apelidos" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Cedula * </label>
-                                                    <input type="text" name="nombre_usuario" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Correo electr&oacute;nico * </label>
-                                                    <input type="email" name="correo" required>
-                                                </div>
 
-                                                <div class="contenedor-input">
-                                                    <label>Celular *</label>
-                                                    <input type="text" name="nombre_usuario" required>
-                                                </div>
-                                
-                                                <div class="contenedor-input">
-                                                    <label>Contrase&ntilde;a * </label>
-                                                    <input type="password" id="clave1" name="clave" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Confirmar contrase&ntilde;a * </label>
-                                                    <input type="password" id="clave2" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Direccion * </label>
-                                                    <input type="text" name="direccion" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Fecha de nacimiento * </label>
-                                                    <input type="date" name="fecha" required>
-                                                </div>
-                        
-                                                <div class="contenedor-input">
-                                                    <label>Sexo * </label>
-                                                    <select name="sexo">
-                                                    <option>Hombre</option>
-                                                        <option>Mujer</option>
-                                                        <option>Otro</option>
-                                                    </select>
-                                                </div>
+    <div class="row">
+        <div class="col-xl-6 col-lg-6">
+            <div class="mt-20">
+                <h2>Bienvenido a clynical Safe</h2>
+                <div class="content-middle">
+                    <div class="container">
+                        <div class="contenido">
+                            <div class="contenido-middle">
+                                <h1>
+                                    Registrarse
+                                </h1>
+                                {% if error %}
+                                <p>
+                                    El nombre de usuario o correo electr&oacute;nico ya existen, pruebe con otro
+                                </p>
+                                {% endif %}
+                                <form id="formulario" action="" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-contenido">
+                                        <div class="contenedor-input">
+                                            <label>Nombre * </label>
+                                            <input type="text" name="nombre" required>
+                                        </div>
 
-                                                <div class="contenedor-input">
-                                                    <label>RH * </label>
-                                                    <input type="text" name="rh" required>
-                                                </div>
+                                        <div class="contenedor-input">
+                                            <label>Apellidos * </label>
+                                            <input type="text" name="apelidos" required>
+                                        </div>
 
-                                                <div class="contenedor-input">
-                                                    <label>Sistema de Salud  </label>
-                                                    <input type="text" name="eps">
-                                                </div>
+                                        <div class="contenedor-input">
+                                            <label>Cedula * </label>
+                                            <input type="text" name="nombre_usuario" required>
+                                        </div>
 
-                                                <div class="contenedor-input">
-                                                    <label> Enfermedades </label>
-                                                    <input type="text" name="enfermedades" >
-                                                </div>
+                                        <div class="contenedor-input">
+                                            <label>Correo electr&oacute;nico * </label>
+                                            <input type="email" name="correo" required>
+                                        </div>
 
-                                                <div class="contenedor-input">
-                                                    <label> medicamentos  </label>
-                                                    <input type="text" name="medicamentos" >
-                                                </div>
+                                        <div class="contenedor-input">
+                                            <label>Celular *</label>
+                                            <input type="text" name="nombre_usuario" required>
+                                        </div>
 
-                                                <div class="contenedor-input">
-                                                    <label>Alergias </label>
-                                                    <input type="text" name="alergias" >
-                                                </div>
+                                        <div class="contenedor-input">
+                                            <label>Contrase&ntilde;a * </label>
+                                            <input type="password" id="clave1" name="clave" required>
+                                        </div>
 
-                        
-                                                <a href="{% url "login" %}" style="font-size: 16px">Ya tienes una cuenta, inicia sesi&oacute;n aquí</a>
-                                                <p style="color: red" id="error"></p>
-                                                <input type="submit" class="boton" value="Registrarse">
-                                            </div>
-                                        </form>
+                                        <div class="contenedor-input">
+                                            <label>Confirmar contrase&ntilde;a * </label>
+                                            <input type="password" id="clave2" required>
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>Direccion * </label>
+                                            <input type="text" name="direccion" required>
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>Fecha de nacimiento * </label>
+                                            <input type="date" name="fecha" required>
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>Sexo * </label>
+                                            <select name="sexo">
+                                                <option>Hombre</option>
+                                                <option>Mujer</option>
+                                                <option>Otro</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>RH * </label>
+                                            <input type="text" name="rh" required>
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>Sistema de Salud </label>
+                                            <input type="text" name="eps">
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label> Enfermedades </label>
+                                            <input type="text" name="enfermedades">
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label> medicamentos </label>
+                                            <input type="text" name="medicamentos">
+                                        </div>
+
+                                        <div class="contenedor-input">
+                                            <label>Alergias </label>
+                                            <input type="text" name="alergias">
+                                        </div>
+
+
+                                        <a href="{% url 'website:login' %}" style="font-size: 16px">Ya tienes una
+                                            cuenta,
+                                            inicia sesi&oacute;n aquí</a>
+                                        <p style="color: red" id="error"></p>
+                                        <input type="submit" class="boton" value="Registrarse">
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- welcome_docmed_area_end -->
 
- <!-- Emergency_contact start -->
- <div class="Emergency_contact">
-    <div class="conatiner-fluid p-0">
-        <div class="row no-gutters">
-            <div class="col-xl-6">
-                <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
-                    <div class="info">
-                        <h3>Para cualquier emergencia</h3>
-                        <p>contactanos al siguiente numero.</p>
-                    </div>
-                    <div class="info_button">
-                        <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
+    <!-- Emergency_contact start -->
+    <div class="Emergency_contact">
+        <div class="conatiner-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-xl-6">
+                    <div
+                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
+                        <div class="info">
+                            <h3>Para cualquier emergencia</h3>
+                            <p>contactanos al siguiente numero.</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
-                    <div class="info">
-                        <h3>Pide tu Cita ahora</h3>
-                        <p>preciona aqui para pedir tu cita</p>
-                    </div>
-                    <div class="info_button">
-                        <a href="#" class="boxed-btn3-white">Agenda una cita</a>
+                <div class="col-xl-6">
+                    <div
+                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
+                        <div class="info">
+                            <h3>Pide tu Cita ahora</h3>
+                            <p>preciona aqui para pedir tu cita</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">Agenda una cita</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Emergency_contact end -->
+    <!-- Emergency_contact end -->
 
     <!-- footer start -->
     <footer class="footer">
@@ -300,29 +308,29 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Departamentos
+                                Departamentos
                             </h3>
                             <ul>
                                 <li><a href="#">Oftalmologo</a></li>
                                 <li><a href="#">Dermatologia</a></li>
                                 <li><a href="#">Patologia
-                                </a></li>
+                                    </a></li>
                                 <li><a href="#">Medicos Generales</a></li>
                                 <li><a href="#">Odontologos</a></li>
                             </ul>
 
                         </div>
                     </div>
-            
+
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Direccion
+                                Direccion
                             </h3>
                             <p>
                                 Carrera80#22-103<br>
                                 +10 367 467 8934 <br>
-                                clynicalsafe@gmail  .com
+                                clynicalsafe@gmail .com
                             </p>
                         </div>
                     </div>
@@ -340,14 +348,15 @@
 
 
 
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-<!-- footer end  -->
+    <!-- footer end  -->
 
     <!-- Emergency_contact end -->
     <!-- JS here -->
@@ -375,7 +384,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <script src="{% static 'website/js/jquery.form.js' %}"></script>
     <script src="{% static 'website/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'website/js/mail-script.js' %}"></script>
-    <script src="{% static "scripts/registro.js" %}"></script>
+    <script src="{% static " scripts/registro.js" %}"></script>
 
     <script src="{% static 'website/js/main.js' %}"></script>
     <script>
@@ -392,9 +401,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
             }
 
         });
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
     </script>
 </body>
 

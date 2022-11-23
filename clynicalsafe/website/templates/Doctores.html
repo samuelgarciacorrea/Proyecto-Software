@@ -59,17 +59,20 @@
                                 <ul>
                                     <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
                                     <li><a href="#"> <i class="fa fa-phone"></i> 160160</a></li>
-                                    
+
                                     <li><a href="login.html">Login </a></li>
-                                        <li><a href="register.html">Registro</a></li>
-                                        <span style="font-size: 15px"> Welcome {% if request.user.is_authenticated %}
-                                            {{request.user.username}}
-                                            {% endif %}
-                                          </span>
-                                        {% if request.user.is_authenticated %}
-                                    <a href="{%url "logout"%}"><li class="material-symbols-outlined icons">Salir</li></a>
+                                    <li><a href="register.html">Registro</a></li>
+                                    <span style="font-size: 15px"> Welcome {% if request.user.is_authenticated %}
+                                        {{request.user.username}}
+                                        {% endif %}
+                                    </span>
+                                    {% if request.user.is_authenticated %}
+                                    <a href="{% url 'website:logout' %}">
+                                        <li class="material-symbols-outlined icons">Salir</li>
+                                    </a>
                                     {%else%}
-                                    <a href="{%url "login"%}"><span class="material-symbols-outlined icons"></span></a>
+                                    <a href="{% url 'website:login' %}"><span
+                                            class="material-symbols-outlined icons"></span></a>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -103,7 +106,7 @@
                                 </nav>
                             </div>
                         </div>
-                        
+
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
@@ -115,30 +118,31 @@
     <!-- header-end -->
     <div class="container">
         <div class="clothescontainer">
-           
-          <div class="card">
-            <img src="{% static 'website/img/experts/1.png' %}" alt=""> 
 
-            <div class="info"><br>
-              <span class="nombre">Departamento: oftalmologia</span><br>
-              <span class="precio">Doctor: John Alvarez</span><br>
-              
-            </div><br>
-            <a  class="boxed-btn3" id="btn" href="denegado.html" >Citas</a>
+            <div class="card">
+                <img src="{% static 'website/img/experts/1.png' %}" alt="">
+
+                <div class="info"><br>
+                    <span class="nombre">Departamento: oftalmologia</span><br>
+                    <span class="precio">Doctor: John Alvarez</span><br>
+
+                </div><br>
+                <a class="boxed-btn3" id="btn" href="denegado.html">Citas</a>
+            </div>
+        </div>
+        <div class="recomendaciones">
+
         </div>
     </div>
-        <div class="recomendaciones">
-          
-        </div>
-      </div>
-       
 
-     <!-- Emergency_contact start -->
-     <div class="Emergency_contact">
+
+    <!-- Emergency_contact start -->
+    <div class="Emergency_contact">
         <div class="conatiner-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-xl-6">
-                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
+                    <div
+                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
                         <div class="info">
                             <h3>Para cualquier emergencia</h3>
                             <p>contactanos al siguiente numero.</p>
@@ -149,7 +153,8 @@
                     </div>
                 </div>
                 <div class="col-xl-6">
-                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
+                    <div
+                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
                         <div class="info">
                             <h3>Pide tu Cita ahora</h3>
                             <p>preciona aqui para pedir tu cita</p>
@@ -164,91 +169,92 @@
     </div>
     <!-- Emergency_contact end -->
 
-<!-- footer start -->
+    <!-- footer start -->
     <footer class="footer">
-            <div class="footer_top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6 col-lg-4">
-                            <div class="footer_widget">
-                                <div class="footer_logo">
-                                    <a href="#">
-                                        <img src="{% static 'website/img/footer_logo.png' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="socail_links">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-twitter-alt"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-    
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'website/img/footer_logo.png' %}" alt="">
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Departamentos
-                                </h3>
+                            <div class="socail_links">
                                 <ul>
-                                    <li><a href="#">Oftalmologo</a></li>
-                                    <li><a href="#">Dermatologia</a></li>
-                                    <li><a href="#">Patologia
-                                    </a></li>
-                                    <li><a href="#">Medicos Generales</a></li>
-                                    <li><a href="#">Odontologos</a></li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
-    
                             </div>
-                        </div>
-                
-                        <div class="col-xl-3 col-md-6 col-lg-3">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Direccion
-                                </h3>
-                                <p>
-                                    Carrera80#22-103<br>
-                                    +10 367 467 8934 <br>
-                                    clynicalsafe@gmail  .com
-                                </p>
-                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="copy-right_text">
-                <div class="container">
-                    <div class="footer_border"></div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <p class="copy_right text-center">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Departamentos
+                            </h3>
+                            <ul>
+                                <li><a href="#">Oftalmologo</a></li>
+                                <li><a href="#">Dermatologia</a></li>
+                                <li><a href="#">Patologia
+                                    </a></li>
+                                <li><a href="#">Medicos Generales</a></li>
+                                <li><a href="#">Odontologos</a></li>
+                            </ul>
 
+                        </div>
+                    </div>
 
-
-
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Direccion
+                            </h3>
+                            <p>
+                                Carrera80#22-103<br>
+                                +10 367 467 8934 <br>
+                                clynicalsafe@gmail .com
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-<!-- footer end  -->
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+
+
+
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end  -->
 
 
     <!-- link that opens popup -->
@@ -283,13 +289,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             </select>
                         </div>
                         <div class="col-xl-6">
-                            <input type="text"  placeholder="Name">
+                            <input type="text" placeholder="Name">
                         </div>
                         <div class="col-xl-6">
-                            <input type="text"  placeholder="Phone no.">
+                            <input type="text" placeholder="Phone no.">
                         </div>
                         <div class="col-xl-12">
-                            <input type="email"  placeholder="Email">
+                            <input type="email" placeholder="Email">
                         </div>
                         <div class="col-xl-12">
                             <button type="submit" class="boxed-btn3">Confirm</button>
@@ -342,9 +348,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
             }
 
         });
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
     </script>
 </body>
 
